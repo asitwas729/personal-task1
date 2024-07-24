@@ -11,7 +11,7 @@ public class App_ {
     char FBO;   // 사칙연산(Four Basic Operations)
     int result = 0;   // 계산 결과
     String end = "";  // 종료의사를 물어보는 변수
-    int[] resultArray = new int[10]; // 연산결과 10개를 저장할 수 있는 배열 선언
+    int[] resultArray = new int[3]; // 연산결과 10개를 저장할 수 있는 배열 선언
     int count = 0;  // 배열 저장개수를 확인하기 위해 저장
     while( !end.equals("exit") ){
       System.out.println(Arrays.toString(resultArray));
@@ -27,25 +27,98 @@ public class App_ {
       if((firstNumber >= 0) && (secondNumber >= 0)){
         if(FBO == '+'){
           result = firstNumber + secondNumber;
-          System.out.println("결과: " + result);
-          resultArray[count] = result;
-          count++;
+          if(count >= 3){
+            count = 0;
+            resultArray[count] = 0;
+            resultArray[count] = result;
+            System.out.println("count가 3이상인 경우 : " + count);
+            count++;
+          } else{
+              if( resultArray[count] != 0){
+                System.out.println("배열에 값이있는 경우 : "+resultArray[count]);
+                resultArray[count] = 0;
+                System.out.println("배열값 0으로 변경 : " +resultArray[count]);
+                resultArray[count] = result;
+                System.out.println("입력값을 비어진 배열에 넣었음 : "+resultArray[count]);
+                count++;
+                System.out.println("카운트값 : " +count);
+              } else{
+                System.out.println("배열값X,count3미만 결과: " + result + ", " + count);
+                resultArray[count] = result;
+                count++;
+
+              }
+            }
         } else if(FBO == '-'){
           result = firstNumber - secondNumber;
-          System.out.println("결과: " + result);
-          resultArray[count] = result;
-          count++;
+          if(count >= 3){
+            count = 0;
+            resultArray[count] = 0;
+            resultArray[count] = result;
+            System.out.println("count가 3이상인 경우 : " + count);
+            count++;
+          } else{
+            if( resultArray[count] != 0){
+              System.out.println("배열에 값이있는 경우 : "+resultArray[count]);
+              resultArray[count] = 0;
+              System.out.println("배열값 0으로 변경 : " +resultArray[count]);
+              resultArray[count] = result;
+              System.out.println("입력값을 비어진 배열에 넣었음 : "+resultArray[count]);
+              count++;
+              System.out.println("카운트값 : " +count);
+            } else{
+              System.out.println("배열값X,count3미만 결과: " + result + ", " + count);
+              resultArray[count] = result;
+              count++;
+            }
+          }
         } else if(FBO == '*'){
           result = firstNumber * secondNumber;
-          System.out.println("결과: " + result);
-          resultArray[count] = result;
-          count++;
+          if(count >= 3){
+            count = 0;
+            resultArray[count] = 0;
+            resultArray[count] = result;
+            System.out.println("count가 3이상인 경우 : " + count);
+            count++;
+          } else{
+            if( resultArray[count] != 0){
+              System.out.println("배열에 값이있는 경우 : "+resultArray[count]);
+              resultArray[count] = 0;
+              System.out.println("배열값 0으로 변경 : " +resultArray[count]);
+              resultArray[count] = result;
+              System.out.println("입력값을 비어진 배열에 넣었음 : "+resultArray[count]);
+              count++;
+              System.out.println("카운트값 : " +count);
+            } else{
+              System.out.println("배열값X,count3미만 결과: " + result + ", " + count);
+              resultArray[count] = result;
+              count++;
+            }
+          }
         } else if(FBO == '/'){
           if((firstNumber > 0) && (secondNumber > 0)){
             result = firstNumber / secondNumber;
-            System.out.println("결과: " + result);
-            resultArray[count] = result;
-            count++;
+            if(count >= 3){
+              count = 0;
+              resultArray[count] = 0;
+              resultArray[count] = result;
+              System.out.println("count가 3이상인 경우 : " + count);
+              count++;
+            } else{
+              if( resultArray[count] != 0){
+                System.out.println("배열에 값이있는 경우 : "+resultArray[count]);
+                resultArray[count] = 0;
+                System.out.println("배열값 0으로 변경 : " +resultArray[count]);
+                resultArray[count] = result;
+                System.out.println("입력값을 비어진 배열에 넣었음 : "+resultArray[count]);
+                count++;
+                System.out.println("카운트값 : " +count);
+              } else{
+                System.out.println("배열값X,count3미만 결과: " + result + ", " + count);
+                resultArray[count] = result;
+                count++;
+              }
+            }
           } else{
             System.out.println("나눗셈 연산에서 0이 입력될 수 없습니다.");
           }
