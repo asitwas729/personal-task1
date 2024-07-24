@@ -7,9 +7,9 @@ public class App_ {
     Scanner sc = new Scanner(System.in);
     int firstNumber = 0;
     int secondNumber = 0;
-    char FBO;
-    int result = 0;
-    String end = "";
+    char FBO;   // 사칙연산(Four Basic Operations)
+    int result = 0;   // 계산 결과
+    String end = "";  // 종료의사를 물어보는 변수
     while( !end.equals("exit") ){
       System.out.print("첫 번째 숫자를 입력하세요: ");
       firstNumber = sc.nextInt();
@@ -47,7 +47,7 @@ public class App_ {
       end = sc.next();
     }
       System.out.println("종료 됩니다.");
-      System.exit(0);
+      System.exit(0);   // 자바 시스템 종료 구문
 
 
 
