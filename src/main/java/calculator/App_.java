@@ -10,6 +10,8 @@ public class App_ {
     System.out.print("두 번째 숫자를 입력하세요: ");
     long secondNumber = sc.nextLong();
     System.out.println(firstNumber + " " + secondNumber);
-
+    System.out.print("사칙연산 기호를 입력하세요: ");
+    char FBO = sc.next().charAt(0);
+    System.out.println(FBO);
   }
 }
