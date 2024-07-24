@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App_ {
@@ -10,7 +11,10 @@ public class App_ {
     char FBO;   // 사칙연산(Four Basic Operations)
     int result = 0;   // 계산 결과
     String end = "";  // 종료의사를 물어보는 변수
+    int[] resultArray = new int[10]; // 연산결과 10개를 저장할 수 있는 배열 선언
+    int count = 0;  // 배열 저장개수를 확인하기 위해 저장
     while( !end.equals("exit") ){
+      System.out.println(Arrays.toString(resultArray));
       System.out.print("첫 번째 숫자를 입력하세요: ");
       firstNumber = sc.nextInt();
       System.out.print("두 번째 숫자를 입력하세요: ");
@@ -24,16 +28,24 @@ public class App_ {
         if(FBO == '+'){
           result = firstNumber + secondNumber;
           System.out.println("결과: " + result);
+          resultArray[count] = result;
+          count++;
         } else if(FBO == '-'){
           result = firstNumber - secondNumber;
           System.out.println("결과: " + result);
+          resultArray[count] = result;
+          count++;
         } else if(FBO == '*'){
           result = firstNumber * secondNumber;
           System.out.println("결과: " + result);
+          resultArray[count] = result;
+          count++;
         } else if(FBO == '/'){
           if((firstNumber > 0) && (secondNumber > 0)){
             result = firstNumber / secondNumber;
             System.out.println("결과: " + result);
+            resultArray[count] = result;
+            count++;
           } else{
             System.out.println("나눗셈 연산에서 0이 입력될 수 없습니다.");
           }
