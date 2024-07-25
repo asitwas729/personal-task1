@@ -3,7 +3,7 @@ package calculator;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App_ {
+public class App {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int firstNumber = 0;
