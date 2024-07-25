@@ -10,13 +10,11 @@ public class App_ {
     int secondNumber = 0;
     char FBO;   // 사칙연산(Four Basic Operations)
     int result = 0;   // 계산 결과
-    String remove = ""; //삭제의사를 물어보는 변수
-    String end = "";  // 종료의사를 물어보는 변수
+    String answer = ""; //의사를 물어보는 변수
     //int[] resultArray = new int[3]; // 연산결과 10개를 저장할 수 있는 배열 선언
     int count = 0;  // 배열 저장개수를 확인하기 위해 저장
     ArrayList<Integer> resultList = new ArrayList<Integer>();
-    while( !end.equals("exit") ){
-      System.out.println(resultList.toString());
+    while( !answer.equals("exit") ){
       System.out.print("첫 번째 숫자를 입력하세요: ");
       firstNumber = sc.nextInt();
       System.out.print("두 번째 숫자를 입력하세요: ");
@@ -157,12 +155,20 @@ public class App_ {
         System.out.println("양의 정수를 입력해주세요.");
       }
       System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제) ");
-      remove = sc.next();
-      if(remove.equals("remove")){
+      answer = sc.next();
+      if(answer.equals("remove")){
         resultList.remove(0);
       }
+      System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회) ");
+      answer = sc.next();
+      if(answer.equals("inquiry")){
+        for(int inquiry : resultList){
+          System.out.print(inquiry + " ");
+        }
+        //
+      }
       System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : ");
-      end = sc.next();
+      answer = sc.next();
     }
       System.out.println("종료 됩니다.");
       System.exit(0);   // 자바 시스템 종료 구문
