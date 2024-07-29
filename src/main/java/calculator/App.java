@@ -144,7 +144,7 @@ public class App {
           result = firstNumber * secondNumber;
           resultList.add(result);
         } else if(FBO == '/'){
-            if((firstNumber < 0) || (secondNumber < 0)){
+            if(!(secondNumber == 0)){
               result = firstNumber / secondNumber;
               resultList.add(result);
             }else {
