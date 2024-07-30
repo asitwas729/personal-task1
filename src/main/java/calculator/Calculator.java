@@ -15,6 +15,10 @@ public class Calculator {
   public void setResultList(List<Integer> resultList) {
     this.resultList = resultList;
   }
+
+  public void removeResult(){
+    resultList.remove(0);
+  }
   public int Calculate(int a, int b, char c){
     int result = 0;
     if(c == '+'){
@@ -48,7 +52,7 @@ public class Calculator {
     System.out.println("입력값 : "+answer);
     if(answer.equals("remove")){
       if(!resultList.isEmpty()){
-        resultList.remove(0);
+        removeResult();
       } else{
         System.out.println("저장된 결과가 없습니다.");
       }
