@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Calculator {
   // private로 직접 접근을 막음
-  private List<Integer> resultList = new ArrayList<Integer>();
+  private List<Integer> resultList;
 
+  // resultLsit값을 조회하는 getter 메서드
   public List<Integer> getResultList(){
     return resultList;
   }
@@ -14,6 +15,11 @@ public class Calculator {
   // resultList값을 수정하는 setter 메서드
   public void setResultList(List<Integer> resultList) {
     this.resultList = resultList;
+  }
+
+  // 기본 생성자
+  public Calculator(){
+    this.resultList = new ArrayList<Integer>();
   }
 
 
