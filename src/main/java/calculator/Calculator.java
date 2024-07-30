@@ -6,6 +6,7 @@ import java.util.List;
 public class Calculator {
   // private로 직접 접근을 막음
   private List<Integer> resultList;
+  private List<Double> areaResult;
 
   // resultLsit값을 조회하는 getter 메서드
   public List<Integer> getResultList(){
@@ -17,9 +18,20 @@ public class Calculator {
     this.resultList = resultList;
   }
 
+  // areaResult값을 조회하는 getter 메서드
+  public List<Double> getAreaResult(){
+    return areaResult;
+  }
+
+  // areaResult값을 수정하는 setter 메서드
+  public void setAreaResult(List<Double> areaResult){
+    this.areaResult = areaResult;
+  }
+
   // 기본 생성자
   public Calculator(){
     this.resultList = new ArrayList<Integer>();
+    this.areaResult = new ArrayList<Double>();
   }
 
 
@@ -57,6 +69,7 @@ public class Calculator {
     for(int result: resultList){
       System.out.println(result + " ");
     }
+    System.out.println("");
   }
 
 
@@ -79,4 +92,49 @@ public class Calculator {
       System.exit(0);   // 자바 시스템 종료 구문
     }
   }
+
+  public void areaAnswer(String areaAnswer){
+    System.out.println("입력값 : "+areaAnswer);
+    if(areaAnswer.equals("remove")){
+      if(!areaResult.isEmpty()){
+        removeArea();
+      } else{
+        System.out.println("저장된 결과가 없습니다.");
+      }
+    } else if(areaAnswer.equals("inquiry")){
+      if(areaResult.isEmpty()){
+        System.out.println("저장된 결과가 없습니다.");
+      } else{
+        inquiryArea();
+      }
+    } else if(areaAnswer.equals("exit")){
+      System.out.println("종료 됩니다.");
+      System.exit(0);   // 자바 시스템 종료 구문
+    }
+  }
+
+  public double calculateCircleArea(int radius){
+    final double PI = 3.14159;  // 파이값은 상수이기때문에 final사용
+    double result = 0;
+    result = PI * radius * radius;
+    areaResult.add(result);
+    return result;
+  }
+
+  public void inquiryArea(){
+    for(Double i: areaResult){
+      System.out.print(i + " ");
+    }
+    System.out.println("");
+  }
+
+  public void removeArea(){
+    areaResult.remove(0);
+  }
+
+
+
+
+
+
 }
