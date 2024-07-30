@@ -16,9 +16,7 @@ public class Calculator {
     this.resultList = resultList;
   }
 
-  public void removeResult(){
-    resultList.remove(0);
-  }
+
   public int Calculate(int a, int b, char c){
     int result = 0;
     if(c == '+'){
@@ -44,8 +42,16 @@ public class Calculator {
     return result;
   }
 
-  
 
+  public void removeResult(){
+    resultList.remove(0);
+  }
+
+  public void inquiryResults(){
+    for(int result: resultList){
+      System.out.println(result + " ");
+    }
+  }
 
 
   public void answer(String answer){
@@ -60,9 +66,7 @@ public class Calculator {
       if(resultList.isEmpty()){
         System.out.println("저장된 결과가 없습니다.");
       } else{
-        for(int inquiry : resultList){
-          System.out.println(inquiry + " ");
-        }
+        inquiryResults();
       }
     } else if(answer.equals("exit")){
       System.out.println("종료 됩니다.");
