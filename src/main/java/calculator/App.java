@@ -1,18 +1,20 @@
 package calculator;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
   public static void main(String[] args) {
     // Calculator 인스턴스 생성
     Calculator calculator = new Calculator();
+
+
     Scanner sc = new Scanner(System.in);
-    int result = 0;   // 계산 결과
+//    int result = 0;   // 계산 결과
     String answer = ""; //의사를 물어보는 변수
     //int[] resultArray = new int[3]; // 연산결과 10개를 저장할 수 있는 배열 선언
-    int count = 0;  // 배열 저장개수를 확인하기 위해 저장
-    ArrayList<Integer> resultList = new ArrayList<Integer>();
+//    int count = 0;  // 배열 저장개수를 확인하기 위해 저장
+//    ArrayList<Integer> resultList = new ArrayList<Integer>();
     while( !answer.equals("exit") ){
       System.out.print("첫 번째 숫자를 입력하세요: ");
       int num1 = sc.nextInt();
@@ -132,7 +134,7 @@ public class App {
 //        }
  //     }
       if((num1 >= 0) && (num2 >= 0)){
-        result = calculator.Calculate(num1, num2, operator);
+        calculator.Calculate(num1, num2, operator);
 //        if(FBO == '+'){
 //          result = firstNumber + secondNumber;
 //          System.out.println("결과: "+result);
@@ -157,7 +159,13 @@ public class App {
       System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제) ");
       calculator.answer(sc.next());
       System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회) ");
-      calculator.answer(sc.next());
+//      calculator.answer(sc.next());
+      if(answer.equals("inquiry")){
+        List<Integer> currentResult = calculator.getResultList();
+        for(int results: currentResult){
+          System.out.println(results+ " ");
+        }
+      }
       System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : ");
       calculator.answer(sc.next());
     }

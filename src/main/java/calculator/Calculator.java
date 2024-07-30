@@ -1,9 +1,20 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
-  ArrayList<Integer> resultList = new ArrayList<Integer>();
+  // private로 직접 접근을 막음
+  private List<Integer> resultList = new ArrayList<Integer>();
+
+  public List<Integer> getResultList(){
+    return resultList;
+  }
+
+  // resultList값을 수정하는 setter 메서드
+  public void setResultList(List<Integer> resultList) {
+    this.resultList = resultList;
+  }
   public int Calculate(int a, int b, char c){
     int result = 0;
     if(c == '+'){
@@ -28,13 +39,26 @@ public class Calculator {
     }
     return result;
   }
+
+  
+
+
+
   public void answer(String answer){
     System.out.println("입력값 : "+answer);
     if(answer.equals("remove")){
-      resultList.remove(0);
+      if(!resultList.isEmpty()){
+        resultList.remove(0);
+      } else{
+        System.out.println("저장된 결과가 없습니다.");
+      }
     } else if(answer.equals("inquiry")){
-      for(int inquiry : resultList){
-        System.out.print(inquiry + " ");
+      if(resultList.isEmpty()){
+        System.out.println("저장된 결과가 없습니다.");
+      } else{
+        for(int inquiry : resultList){
+          System.out.println(inquiry + " ");
+        }
       }
     } else if(answer.equals("exit")){
       System.out.println("종료 됩니다.");
