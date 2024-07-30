@@ -11,6 +11,7 @@ public class Calculator {
   private SubtractOperator subtractOperator;
   private MultiplyOperator multiplyOperator;
   private DivideOperator divideOperator;
+  private ModOperator modOperator;
 
 
 
@@ -23,27 +24,31 @@ public class Calculator {
     this.subtractOperator = new SubtractOperator();
     this.multiplyOperator = new MultiplyOperator();
     this.divideOperator = new DivideOperator();
+    this.modOperator = new ModOperator();
   }
 
 
   public int Calculate(int a, int b, char c){
     int result = 0;
     if(c == '+'){
-      result = addOperator.operate(a, b, c);
+      result = addOperator.operate(a, b);
       resultList.add(result);
     } else if(c == '-'){
-      result = subtractOperator.operate(a, b, c);
+      result = subtractOperator.operate(a, b);
       resultList.add(result);
     } else if(c == '*'){
-      result = multiplyOperator.operate(a, b, c);
+      result = multiplyOperator.operate(a, b);
       resultList.add(result);
     } else if(c == '/'){
       if(b != 0){
-        result = divideOperator.operate(a, b, c);
+        result = divideOperator.operate(a, b);
         resultList.add(result);
       } else {
         System.out.println("나눗셈에서 분모에 0을 넣을수는 없습니다.");
       }
+    } else if(c == '%'){
+      result = modOperator.operate(a, b);
+      resultList.add(result);
     }else{
       System.out.println("사칙연산기호를 잘못입력하셨습니다.");
     }

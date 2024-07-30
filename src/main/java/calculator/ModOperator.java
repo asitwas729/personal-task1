@@ -1,8 +1,8 @@
 package calculator;
 
-public class SubtractOperator {
+public class ModOperator {
   public int operate(int a, int b) {
-    int result = a - b;
+    int result = a % b;
     return result;
   }
 }
