@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArithmeticCalculator extends Calculator {
+  private AddOperator addOperator;
+  private SubtractOperator subtractOperator;
+  private MultiplyOperator multiplyOperator;
+  private DivideOperator divideOperator;
   // private로 직접 접근을 막음
   private List<Integer> resultList;
+  int result = 0;
 
   // resultList값을 조회하는 getter 메서드
   public List<Integer> getResultList(){
@@ -20,23 +25,28 @@ public class ArithmeticCalculator extends Calculator {
   // 기본 생성자
   public ArithmeticCalculator(){
     this.resultList = new ArrayList<Integer>();
+    this.addOperator = new AddOperator();
+    this.subtractOperator = new SubtractOperator();
+    this.multiplyOperator = new MultiplyOperator();
+    this.divideOperator = new DivideOperator();
   }
 
+
+
+
   public int Calculate(int a, int b, char c){
-    int result = 0;
     if(c == '+'){
-      result = a + b;
+      result = addOperator.operate(a, b, c);
       resultList.add(result);
-      System.out.println(resultList.toString());
     } else if(c == '-'){
-      result = a - b;
+      result = subtractOperator.operate(a, b, c);
       resultList.add(result);
     } else if(c == '*'){
-      result = a * b;
+      result = multiplyOperator.operate(a, b, c);
       resultList.add(result);
     } else if(c == '/'){
       if(b != 0){
-        result = a / b;
+        result = divideOperator.operate(a, b, c);
         resultList.add(result);
       } else {
         System.out.println("나눗셈에서 분모에 0을 넣을수는 없습니다.");

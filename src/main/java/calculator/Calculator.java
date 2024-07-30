@@ -7,49 +7,39 @@ public class Calculator {
   // private로 직접 접근을 막음
   private List<Integer> resultList;
   private List<Double> areaResult;
+  private AddOperator addOperator;
+  private SubtractOperator subtractOperator;
+  private MultiplyOperator multiplyOperator;
+  private DivideOperator divideOperator;
 
-  // resultList값을 조회하는 getter 메서드
-  public List<Integer> getResultList(){
-    return resultList;
-  }
 
-  // resultList값을 수정하는 setter 메서드
-  public void setResultList(List<Integer> resultList) {
-    this.resultList = resultList;
-  }
 
-  // areaResult값을 조회하는 getter 메서드
-  public List<Double> getAreaResult(){
-    return areaResult;
-  }
-
-  // areaResult값을 수정하는 setter 메서드
-  public void setAreaResult(List<Double> areaResult){
-    this.areaResult = areaResult;
-  }
 
   // 기본 생성자
   public Calculator(){
     this.resultList = new ArrayList<Integer>();
     this.areaResult = new ArrayList<Double>();
+    this.addOperator = new AddOperator();
+    this.subtractOperator = new SubtractOperator();
+    this.multiplyOperator = new MultiplyOperator();
+    this.divideOperator = new DivideOperator();
   }
 
 
   public int Calculate(int a, int b, char c){
     int result = 0;
     if(c == '+'){
-      result = a + b;
+      result = addOperator.operate(a, b, c);
       resultList.add(result);
-      System.out.println(resultList.toString());
     } else if(c == '-'){
-      result = a - b;
+      result = subtractOperator.operate(a, b, c);
       resultList.add(result);
     } else if(c == '*'){
-      result = a * b;
+      result = multiplyOperator.operate(a, b, c);
       resultList.add(result);
     } else if(c == '/'){
       if(b != 0){
-        result = a / b;
+        result = divideOperator.operate(a, b, c);
         resultList.add(result);
       } else {
         System.out.println("나눗셈에서 분모에 0을 넣을수는 없습니다.");
@@ -133,7 +123,25 @@ public class Calculator {
   }
 
 
+  // resultList값을 조회하는 getter 메서드
+  public List<Integer> getResultList(){
+    return resultList;
+  }
 
+  // resultList값을 수정하는 setter 메서드
+  public void setResultList(List<Integer> resultList) {
+    this.resultList = resultList;
+  }
+
+  // areaResult값을 조회하는 getter 메서드
+  public List<Double> getAreaResult(){
+    return areaResult;
+  }
+
+  // areaResult값을 수정하는 setter 메서드
+  public void setAreaResult(List<Double> areaResult){
+    this.areaResult = areaResult;
+  }
 
 
 
